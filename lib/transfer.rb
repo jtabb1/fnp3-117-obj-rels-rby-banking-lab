@@ -1,16 +1,15 @@
 class Transfer
 
-  # attr_reader :status
-  attr_accessor :sender, :receiver, :amount, :status
-
-  @@all = []
+  # Changed the code next line from accessor to reader as influenced by 
+  #  the official solution despite passed tests of the original solution
+  attr_reader :sender, :receiver, :amount
+  attr_accessor :status
 
   def initialize(sender, receiver, amount)
     @sender = sender
     @receiver = receiver
     @amount = amount
     @status = "pending"
-    @@all << self
   end
 
   def valid?
@@ -35,5 +34,4 @@ class Transfer
       self.status = "reversed"
     end
   end
-
 end
